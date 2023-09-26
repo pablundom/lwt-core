@@ -1,0 +1,31 @@
+
+
+
+
+.builder-component-container{
+    position: relative;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 30px;
+    background-color: white;
+    border: 2px dotted #d4d4d4;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.builder-component-toolbar-show{
+    display: block!important;
+}
+.builder-component-toolbar-show > span:hover {
+    color: #ae45ff;
+}
+.builder-component-toolbar{
+    position: absolute;
+    display: none;
+    padding: 5px;
+    left: 15px;
+    bottom: 0;
+    width: auto;
+    cursor: pointer;
+}

@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {LWT} from "./classes/LWT.js";
+import json from "../model.example.json"
+import {ReactParser} from "./adapters/React/classes/ReactParser.js";
+import "./index.css";
+import {ReactBuilder} from "./adapters/React/classes/ReactBuilder.js";
+import {getNewStore} from "./store/zustand.store.js";
+import {FilterEventEmitter} from "./classes/FilterEventEmitter.js";
+import {builderGroups, components, options, plugins} from "./adapters/React/default/index.js";
+const eventEmitter = new FilterEventEmitter();
+const lwt = new LWT({
+    schema: json, store: getNewStore(), options: options,
+    builder: ReactBuilder, parser: ReactParser, eventEmitter: eventEmitter
+});
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+lwt.addGroups(builderGroups);
+lwt.addComponents(components);
+lwt.addPlugins(plugins);
+lwt.addBuilder(document.getElementById('builder-components'));
+lwt.render();

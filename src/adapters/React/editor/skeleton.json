@@ -1,0 +1,35 @@
+{
+  "type": "container",
+  "main": "true",
+  "props": {},
+  "children": [
+    {
+      "type": "tabs",
+      "name": "Pestañas",
+      "key": "tabs",
+      "defaultProps": {
+        "containerClass": "container",
+        "tabs": [
+        ]
+      },
+      "children": [
+      ],
+      "props": {
+        "containerClass": "container",
+        "tabs": []
+      }
+    }
+  ],
+  "options": {
+    "components": {
+      "defaultStyles": {},
+      "defaultClassName": {}
+    }
+  },
+  "childrenDefaultProps": {
+    "sx": {
+      "marginTop": 1,
+      "marginBottom": 1
+    }
+  }
+}
